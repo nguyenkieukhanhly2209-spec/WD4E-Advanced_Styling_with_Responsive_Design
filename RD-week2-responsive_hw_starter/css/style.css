@@ -1,164 +1,91 @@
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: #dedede;
+    color: #000;
 }
 
 h1 {
     text-align: center;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 32px;
 }
 
 a {
     color: #000;
     text-decoration: none;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 p {
-   font-size: 25px;
-   font-family:Arial, sans-serif;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-img{
-  width:100%;
+/* Chế độ xem di động (ưu tiên di động, không có truy vấn): lưới 1 cột, khoảng cách 10px */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 10px;
 }
 
-
-p{
-  text-align:center;
+div {
+    padding: 2px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #595959;
 }
 
-div img{
-    width:150px;
-    height: 150px;
-    display:block;
-    margin:auto;
+div img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-div{
-  display: inline-block;
-  width: 24%;
-  margin: 5px;
-  padding: 2px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Truy vấn #1: Chế độ xem máy tính bảng (từ 772px trở lên) */
+/* Chế độ xem máy tính bảng */
 @media (min-width: 772px) {
-    div {
-        width: 45%;
+    main {
+        grid-template-columns: 1fr 1fr;
     }
 
     div img {
-        width: auto;          /* bỏ chiều rộng cố định 150px */
-        height: auto;         /* bỏ chiều cao cố định 150px */
-        max-width: 100%;      /* ảnh không tràn khỏi div */
-        max-height: 30vh;     /* ảnh không quá 30% chiều cao chế độ xem */
-        object-fit: contain;  /* giữ đúng tỉ lệ ảnh */
+        border-radius: 50%;
+    }
+
+    div:last-child {
+        grid-column: 1 / -1;
     }
 }
 
-/* Truy vấn #2: Chế độ xem màn hình lớn (từ 998px trở lên) */
-@media (min-width: 998px) {
+/* Chế độ xem màn hình lớn */
+@media (min-width: 992px) {
+    div:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    div img {
+        border-radius: 0;
+    }
+}
+
+/* Giảm chuyển động: xóa hành vi cuộn */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Chế độ tối */
+@media (prefers-color-scheme: dark) {
     div {
-        width: 30%;
+        background-color: #1c1c1c;
+        color: #ffd54f;
+        border-color: #000;
     }
 }
-
-
-
-
-
-
-
-/* 
-main {
-    border: 5px #000 solid;
-    margin: 10px;
-}
- */
-/* 
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-}
- */
-/* img{
-    width: 200px;
-    height: 200px;
-    padding: 5px;
-} */
-
-/* .child {
-    position: relative;
-    display: inline-block;
-    border: 5px black solid;
-    margin: 5px;
-    border-radius: 5px;
-} */
-
-/* 
-
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.button {
-    display: inline-block;
-    border: 2px solid #000;
-    padding: 5px;
-    border-radius: 25px;
-}
- */
-/* 
-.button:hover {
-    background-color:#fff;
-} */
-
-/* 
-footer {
-    display: flex;
-    justify-content: center;
-} */
-
-/* 
-header {
-    border-radius: 5px;
-    border: 5px #000 solid;
-    margin: 10px;
-} */
-
-/* 
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.child:hover .label {
-    display: block;
-} */
