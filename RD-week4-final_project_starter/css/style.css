@@ -26,21 +26,22 @@ p {
 }
 
 /* Chế độ xem di động (ưu tiên di động, không có truy vấn): lưới 1 cột, khoảng cách 10px */
-main {
+main > div {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
     margin: 10px;
 }
 
-div {
+figure {
+    margin: 0;
     padding: 2px;
     background-color: #fff;
     color: #000;
     border: 2px solid #595959;
 }
 
-div img {
+figure img {
     display: block;
     width: 100%;
     height: auto;
@@ -48,28 +49,35 @@ div img {
     object-fit: cover;
 }
 
+figcaption {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    padding: 5px 0;
+}
+
 /* Chế độ xem máy tính bảng */
 @media (min-width: 772px) {
-    main {
+    main > div {
         grid-template-columns: 1fr 1fr;
     }
 
-    div img {
+    figure img {
         border-radius: 50%;
     }
 
-    div:last-child {
+    figure:last-child {
         grid-column: 1 / -1;
     }
 }
 
 /* Chế độ xem màn hình lớn */
 @media (min-width: 992px) {
-    div:nth-child(3n) {
+    figure:nth-child(3n) {
         grid-column: 1 / -1;
     }
 
-    div img {
+    figure img {
         border-radius: 0;
     }
 }
@@ -83,7 +91,7 @@ div img {
 
 /* Chế độ tối */
 @media (prefers-color-scheme: dark) {
-    div {
+    figure {
         background-color: #1c1c1c;
         color: #ffd54f;
         border-color: #000;
